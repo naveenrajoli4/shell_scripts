@@ -33,6 +33,7 @@ then
 else
     echo " $G mysql enable....SUCCESS $N"
 fi
+#ok
 
 systemctl start mysqld
 if ( $? -ne 0 )
