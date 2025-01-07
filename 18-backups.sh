@@ -67,3 +67,10 @@ else
     echo "zipping error"
     exit 1
 fi
+
+while read -r filepath # here filepath is the variable name, you can give any name
+do
+    echo "Deleting file: $filepath" &>>$LOG_FILE_NAME
+    rm -rf $filepath
+    echo "Deleted file: $filepath"
+done <<< $FILES
