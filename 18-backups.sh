@@ -9,26 +9,6 @@ LOG_FILE=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%d-%m-%Y-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP"
 
-USERID=$(id -u)
-
-if [ $USERID -ne 0 ]
-then
-    echo -e "$R you should be a root user to run this script $N"
-    exit 1
-else
-    echo -e "$G ROOT__USER__SUCCESSFULLY__VERFIED! $N"
-fi
-
-VALIDATE() {
-    if [ $1 -ne 0 ]
-    then
-        echo -e "$R $2 .....FAILURE $N"
-        exit 1
-    else
-        echo -e "$G $2-------SUCCESS $N"
-    fi
-}
-
 if [ $# -lt 2 ]
 then 
     echo "USEAGE: sh script_name <SOURCE_DIR> <DEST_DIR> <DAYS(Optional)>"
