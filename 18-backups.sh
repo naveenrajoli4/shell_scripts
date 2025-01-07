@@ -44,7 +44,7 @@ then
 fi
 
 ZIP_FILES="$DESTINATION_DIR/why-$TIMESTAMP.zip"
-find $SOURCE_DIR -name "*.log" | zip -@ "$ZIP_FILES"
+find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILES"
 
 if [ -f "$ZIP_FILES" ]
 then 
