@@ -2,7 +2,7 @@
 
 SOURCE_DIR=$1
 DESTINATION_DIR=$2
-DAYS=${3:-14}
+DAYS=${3:-14} # if user is not providing number of days, we are taking 14 as default
 
 LOGS_FOLDER="/home/ec2-user/shellscript-logs"
 LOG_FILE=$(echo $0 | cut -d "." -f1)
@@ -44,7 +44,7 @@ echo "Script started executing at: $TIMESTAMP"
 FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 #NOTE: -type f =Ensures only regular files are included in the results(ignores directories, symbolic links, etc.).
 
-if [ -n "$FILES" ] 
+if [ -n "$FILES" ] # true if there are files to zip
 then 
     echo "Files to zip are:$FILES"
     else
