@@ -64,6 +64,6 @@ if [ -f "$ZIP_FILES" ]
 then 
     echo "Successfully created zip file for files older than $DAYS"
 else 
-    echo "zipping error "
+    echo "zipping error"
     exit 1
 fi
