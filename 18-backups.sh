@@ -43,7 +43,7 @@ then
     exit 1
 fi
 
-ZIP_FILES="$DESTINATION_DIR/why-$TIMESTAMP.zip"
+ZIP_FILES="$DESTINATION_DIR/sorc_01-$TIMESTAMP.zip"
 find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILES"
 
 if [ -f "$ZIP_FILES" ]
