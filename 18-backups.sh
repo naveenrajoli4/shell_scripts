@@ -20,7 +20,7 @@ then
     echo "source directory not exist"
     exit 1
 else 
-    echo "destination directory exist"
+    echo "source directory exist"
 fi
 
 if [ ! -d $DESTINATION_DIR ]
