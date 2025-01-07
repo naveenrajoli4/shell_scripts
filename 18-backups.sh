@@ -43,16 +43,16 @@ then
     exit 1
 fi
 
-# ZIP_FILES="$DESTINATION_DIR/why-$TIMESTAMP.zip"
-# find $SOURCE_DIR -name "*.log" | zip -@ "$ZIP_FILES"
+ZIP_FILES="$DESTINATION_DIR/why-$TIMESTAMP.zip"
+find $SOURCE_DIR -name "*.log" | zip -@ "$ZIP_FILES"
 
-# if [ -f $ZIP_FILES ]
-# then 
-#     echo "successfully created zip "
-# else 
-#     echo "zipping error "
-#     exit 1
-# fi
+if [ -f "$ZIP_FILES" ]
+then 
+    echo "Successfully created zip file for files older than $DAYS"
+else 
+    echo "zipping error "
+    exit 1
+fi
 
 # while read -r $filesd
 # do  
