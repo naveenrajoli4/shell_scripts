@@ -48,7 +48,7 @@ if [ -n "$FILES" ]
 then 
     echo "Files to zip are:$FILES"
     else
-    echo "no files older than $DAYS to delete"
+    echo "no files found older than $DAYS days to delete"
     exit 1
 fi
 
