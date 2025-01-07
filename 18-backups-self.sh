@@ -5,9 +5,19 @@ DESTINATION_DIR=$2
 DAYS=${3:-14} # if user is not providing number of days, we are taking 14 as default
 
 LOGS_FOLDER="/home/ec2-user/shellscript-logs"
-LOG_FILE=$(echo $0 | cut -d "." -f1)
+LOG_FILE=$(echo $0 |awk -F "/" '{print $NF}' | cut -d "." -f1)
 TIMESTAMP=$(date +%d-%m-%Y-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
+
+# Note:
+# 1. awk is a powerful text-processing tool used to process and manipulate data in a stream (or file). It processes input line by line.
+# 2. The -F option in awk sets the field separator to /, which means awk will split the input string at every / character.
+#     For example, given the string /home/user/file.txt, awk will split it into these parts:
+#       /home
+#        user
+#        file.txt
+# 3. {print $NF} tells awk to print the last field from the split string.
+# 4. $NF is a special variable in awk that holds the value of the last field (regardless of how many fields are in the input)
 
 if [ $# -lt 2 ] # The expression "Evaluates whether the number of arguments ($#) is less than 2"
 then 
