@@ -56,7 +56,7 @@ echo "Script started executing at: $TIMESTAMP"
 dnf list installed zip
 if [ $? -ne 0 ]
 then
-    dnf install zip
+    dnf install zip -y
     if [ $? -ne 0 ]
     then        
         echo "installing zip faillure"
