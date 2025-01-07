@@ -9,6 +9,26 @@ LOG_FILE=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%d-%m-%Y-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP"
 
+USERID=$(id -u)
+
+if [ $USERID -ne 0 ]
+then
+    echo -e "$R you should be a root user to run this script $N"
+    exit 1
+else
+    echo -e "$G ROOT__USER__SUCCESSFULLY__VERFIED! $N"
+fi
+
+VALIDATE() {
+    if [ $1 -ne 0 ]
+    then
+        echo -e "$R $2 .....FAILURE $N"
+        exit 1
+    else
+        echo -e "$G $2-------SUCCESS $N"
+    fi
+}
+
 if [ $# -lt 2 ]
 then 
     echo "USEAGE: sh script_name <SOURCE_DIR> <DEST_DIR> <DAYS(Optional)>"
@@ -42,6 +62,14 @@ then
     echo "no files older than $DAYS to delete"
     exit 1
 fi
+
+dnf list installed zip
+if [ $? -ne 0 ]
+then
+    dnf install zip
+    VALIDATE $? "Installing ZIP"
+else
+    echo "ZIP is allready installed "
 
 ZIP_FILES="$DESTINATION_DIR/sorc_01-$TIMESTAMP.zip"
 find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILES"
