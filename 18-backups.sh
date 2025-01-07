@@ -33,20 +33,6 @@ fi
 
 echo "Script started executing at: $TIMESTAMP"
 
-dnf list installed zip
-if [ $? -ne 0 ]
-then
-    dnf install zip -y
-    if [ $? -ne 0 ]
-    then        
-        echo "installing zip faillure"
-        exit 1
-    else
-        echo "zip installing success"
-    fi
-else
-    echo "ZIP is allready installed "
-
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
 
 if [ -n "$FILES" ] 
