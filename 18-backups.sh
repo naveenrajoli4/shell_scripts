@@ -67,10 +67,3 @@ else
     echo "zipping error "
     exit 1
 fi
-
-# while read -r $filesd
-# do  
-#     echo "deleting files : $filesd" 
-#     rm -rf $filesd
-#     "echo deleted files: $filesd"
-# done <<< $FILES
