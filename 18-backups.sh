@@ -67,7 +67,13 @@ dnf list installed zip
 if [ $? -ne 0 ]
 then
     dnf install zip
-    VALIDATE $? "Installing ZIP"
+    if [ $? -ne 0 ]
+    then        
+        echo "installing zip faillure"
+        exit 1
+    else
+        echo "zip installing success"
+    fi
 else
     echo "ZIP is allready installed "
 
