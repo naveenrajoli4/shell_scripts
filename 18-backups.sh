@@ -17,14 +17,18 @@ fi
 
 if [ ! -d $SOURCE_DIR ]
 then
-    echo "destinantion directory not exist"
+    echo "source directory not exist"
     exit 1
+else 
+    echo "destination directory exist"
 fi
 
 if [ ! -d $DESTINATION_DIR ]
 then
     echo "destinantion directory not exist"
-    exit 1   
+    exit 1 
+else
+    echo "destination directory exist"
 fi
 
 echo "Script started executing at: $TIMESTAMP"
@@ -35,7 +39,7 @@ if [ -n "$FILES" ]
 then 
     echo "Files to zip are:$FILES"
     else
-    echo "no files older than $DAY to delete"
+    echo "no files older than $DAYS to delete"
     exit 1
 fi
 
