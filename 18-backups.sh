@@ -41,7 +41,7 @@ fi
 echo "Script started executing at: $TIMESTAMP"
 
 
-FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
+FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 #NOTE: -type f =Ensures only regular files are included in the results(ignores directories, symbolic links, etc.).
 
 if [ -n "$FILES" ] 
@@ -53,7 +53,7 @@ then
 fi
 
 ZIP_FILES="$DESTINATION_DIR/backuplogs-$TIMESTAMP.zip"
-find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILES"
+find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | zip -@ "$ZIP_FILES"
 
 if [ -f "$ZIP_FILES" ] #The -f operator checks if the specified path is a regular file (not a directory, symlink, or other types of file)
 then 
