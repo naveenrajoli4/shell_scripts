@@ -9,4 +9,4 @@ do
     # USEAGE=$(echo $line | awk "")
     
 
-done >>> $DISK_USAGE
+done <<< $DISK_USAGE
