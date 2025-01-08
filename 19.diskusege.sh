@@ -5,6 +5,7 @@ THRESHOLD_LIMIT="5"
 
 While read -r lines
 do 
+    echo $line
     # USEAGE=$(echo $line | awk "")
     
 
