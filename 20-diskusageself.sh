@@ -11,8 +11,8 @@ do
     echo "part: $PART , use: $USE"
      if [ $USE -ge $LIMIT ]
      then
-        MSG=""High Disk usage on partition: $PART Usage is: $USE "
+        MSG+="High Disk usage on partition: $PART Usage is: $USE"
     fi
 done <<< $DISKS
 
-echo 
+echo -e "Message: $MSG"
