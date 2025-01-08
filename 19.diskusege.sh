@@ -8,7 +8,6 @@ do
     USAGE=$(echo $line | awk -F " " '{print $6f}' | cut -d "%" -f1)
     PARTITION=$(echo $line | awk -F " " '{print $Nf}')
     echo "Partition: $PARTITION , Usage: $USAGE"
-
 done <<< $DISK_USAGE
 
 # DISK_USAGE=$(df -hT | grep xfs)
