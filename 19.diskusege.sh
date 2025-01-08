@@ -1,21 +1,20 @@
 # #!/bin/bash
 
-# DISK_USAGE=$(df -hT | grep xfs)
-# DISK_THRESHOLD=5 #real projects will monitor for 70
-
-# while read -r line
-# do
-#     USAGE=$(echo $line | awk -F " " '{print $6f}' | cut -d "%" -f1)
-#     PARTITION=$(echo $line | awk -F " " '{print $Nf}')
-#     echo "Partition: $PARTITION , Usage: $USAGE"
-# done <<< $DISK_USAGE
-
 DISK_USAGE=$(df -hT | grep xfs)
 DISK_THRESHOLD=5 #real projects will monitor for 70
 
 while read -r line
 do
-    USAGE=$(echo $line | awk -F " " '{print $6F}' | cut -d "%" -f1)
-    PARTITION=$(echo $line | awk -F " " '{print $NF}')
-    echo "Partition: $PARTITION , Usage: $USAGE"
-done <<< $DISK_USAGE
+    USAGE=$(echo $line | awk -F " " '{print $6f}')
+    echo "$USAGE"
+done <<< $DISK_THRESHOLD
+
+
+
+
+# while read -r line
+# do
+#     USAGE=$(echo $line | awk -F " " '{print $6F}' | cut -d "%" -f1)
+#     PARTITION=$(echo $line | awk -F " " '{print $NF}')
+#     echo "Partition: $PARTITION , Usage: $USAGE"
+# done <<< $DISK_USAGE
