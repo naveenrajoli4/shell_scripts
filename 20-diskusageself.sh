@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DISKS=$(df -ht | grep xfs)
+DISKS=$(df -hT | grep xfs)
 LIMIT=5
 
 while read -r line
